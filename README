@@ -1,6 +1,11 @@
 Author: David Martinez
 Email: dhavhid@gmail.com
 
-This a Agenda created in Node.js The purpose is to let newbie people know about capabilities of the language. It includes files uploading and connection with MongoDB through the official driver. You will also see how to work with the express framework
+This a Agenda created in Node.js The purpose is to let newbie people know about capabilities of the language. 
+It includes files uploading and connection with MongoDB through the official driver. 
+You will also see how to work with the express framework
 
-The project was intented to set in a map the location of the contacts in your agenda by using the geolocator google API service. Even though is not implemented yet.
+The project was intented to set in a map the location of the contacts in your agenda 
+by using the geolocator google API service. Even though is not implemented yet.
+
+This project uses Twitter Bootstrap 2
