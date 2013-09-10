@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC|Galdeano' rel='stylesheet' type='text/css'>
+		<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+		<link rel='stylesheet' href='/stylesheets/bootstrap-responsive.min.css' />
+		<link rel='stylesheet' href='/stylesheets/magnificpopup.css' />
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+		<script type="text/javascript" src="/javascripts/map.js"></script>
+		<script type="text/javascript" src="/javascripts/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="/javascripts/global.js"></script>
+	</head>
+	<body>
+	<div class="container-fluid">
+		<div class="row-fluid"> <!-- row fluid 1 -->
+			<div class="navbar navbar-inverse navbar-fixed-top"> <!-- navbar -->
+				<div class="navbar-inner">
+					<div class="container">
+						
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+						</a>
+						
+						<a class="brand" href="#">Agenda</a>
+						
+						<div class="nav-collapse collapse">
+					    	<ul class="nav">
+								<li class="active">
+									<a href="#">Contacts</a>
+								</li>
+								<li><a href="#">Search</a></li>
+								<li><a href="#">Log out</a></li>
+							</ul>
+					    </div>
+					    
+					</div> <!-- end of container -->
+				</div>
+			</div> <!-- navbar -->
+		</div> <!-- end of row fluid 1 -->
+		<br /><br /><br />
+		<div class="row-fluid">
+			<div class="span3">
+				<input type="button" value="Add Contact" class="btn btn-primary">
+				&nbsp;&nbsp;
+				<input type="button" value="Search Contact" class="btn">
+			</div>
+		</div>
+		<br />
+		<div class="row-fluid">
+			<div class="span7">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th width="5%">*</th>
+							<th width="55%" colspan="2" style="text-align:center !important;">NAME</th>
+							<th width="20%">TELEPHONE</th>
+							<th width="20%">E-MAIL</th>
+							<th width="5%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for( var i = 0; i<contacts.length; i++ ){ %>
+						<tr>
+							<td><%= i+1 %></td>
+							<td style="text-align:center;"><% if(contacts[i].profile_picture){ %>
+									<a href="/contacts/picture/<%= contacts[i]._id.toHexString() %>" class="magnific">
+									<img src="/contacts/picture/<%= contacts[i]._id.toHexString() %>" class="img-polaroid" width="50px" />
+									</a>
+								<%}else{%>
+									<img class="img-polaroid" width="50px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAEbUlEQVR4nO3Y3YrqSABF4fP+j1IQAiEgEhBBgggiIuKII44ECSGEeoU9F4lt2m6Ysw8M/bcuPui2ohV0WZX4K8Yo4Hf9+ugTwNdCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEA8u3CKY5LpWEVOtz82bsup0ryzLlxVrN8NjtuFKeJEqSRNmk1KX9/bn2i4lCOtWpeR6rtSpyZVk+Oo9W+3KqJEmUJKmK5UHdJ3i/fmwwTXXWfrtSHoJCCFoc69fH1Adlw1hIS9UxKlZbJSEohERZlvRj2fIlpvd1qs5Hbcppf3zIdHgKptoWw9jjPM6rSf9YkilL+rHp5vLh79uPDeY4T14+pLfBdNpMR+NZqSZGnZe5QggqNpVibLTI+ni2//ytWZ4rz6faVVGx3qvIc+X5TOe21mI0TwiZjuNg2tNLtI/zuGmRBoWQaldHxdsQ6n/G+bl96WC6rlXbtTossjfBNMdSIQSVu62mo2BOZf7q2PH/x+F1kslci2mqEIKy8tjP1bbqumoI7HUw+1miEAodDsvHazfHfnVL+3ljO/wfCl26j3/vfmQwd88RxO6qWQgK061ivPTf/mypNjYqs+Fbf+veeW6lWTJaSdKFbq/marR8CqY9rxRC0PzQKF77v8tTq9geh3mHYGI9zP12O/tKvmUw99Ulm6+12yz6rSCZaH246jDvV5Hy2F+YnpZPzz3MX4IpT88X0c/BNFrlwza02Wm96K9Z8vlK53/+6leUezAv29ZEJ+Mi+7P5psEsXl3bPMy1L7NhReiPXU/6sdW5VYy1ynx0fP58vfE2mDJ9b56g2eGkIgSFkOvUxceWdN+ivqhvGUzsWtV1rbpu1Fx3/QeVFLq0j9UnpIXWq/tqUugaoy7r4S4om2oyhDBdj+9qHsHct5W2qfu5mlbXff96891FXbxf2wRls6WWRR9qOj98+PtFMEMw5fNtdYyPrSBfqY1RMbbaLfLRapBqdaoVb3ulw+32+hrVnZfDeD66wL0HM9H5nW2lPZWvtrvYnDUbr0DZ3PrN5zP6FsH8ieZWqaoq1f/7B9jqVlWqqtuX/9Euxh8cDP4MwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEAwvBwEIwsBAMLAQDC8HAQjCwEAwsBAMLwcBCMLAQDCwEA8u/ZlA7OBG9AJ8AAAAASUVORK5CYII=" />
+								<%}%>
+							</td>
+							<td><%= contacts[i].firstname %></td>
+							<td><%= contacts[i].phone %></td>
+							<td><%= contacts[i].email %></td>
+							<td><a href="/contacts/edit/<%= contacts[i]._id.toHexString() %>" class="btn">Edit</a></td>
+						</tr>
+						<% } %>
+					</tbody>
+					<tfoot>
+					</tfoot>
+				</table>
+			</div> <!-- end of span7 -->
+			<div class="span5">
+				<div id="map-canvas"></div>
+			</div>
+		</div>
+	</div> <!-- end of container -->
+	</body>
+</html>
