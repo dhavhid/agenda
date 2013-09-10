@@ -11,16 +11,18 @@ by using the geolocator google API service. Even though is not implemented yet.
 This project uses Twitter Bootstrap 2
 
 
-Installation
+INSTALLATION
+
 Dependencies:
 
-Node.js
-Twitter Bootstrap
-MongoDB Driver
-Express Framework
+- Node.js
+- Twitter Bootstrap
+- MongoDB Driver
+- Express Framework
+
 To make this application to run just get the latest copy of the code into a folder then follow these steps:
 
-cd application_folder
-npm install
-node app.js
-From a browser look up for the url: http://localhost:3000
+1. cd application_folder
+2. npm install
+3. node app.js
+4. From a browser look up for the url: http://localhost:3000
