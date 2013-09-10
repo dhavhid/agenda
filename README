@@ -9,3 +9,18 @@ The project was intented to set in a map the location of the contacts in your ag
 by using the geolocator google API service. Even though is not implemented yet.
 
 This project uses Twitter Bootstrap 2
+
+
+Installation
+Dependencies:
+
+Node.js
+Twitter Bootstrap
+MongoDB Driver
+Express Framework
+To make this application to run just get the latest copy of the code into a folder then follow these steps:
+
+cd application_folder
+npm install
+node app.js
+From a browser look up for the url: http://localhost:3000
